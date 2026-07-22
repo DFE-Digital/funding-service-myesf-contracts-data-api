@@ -80,7 +80,7 @@ namespace Pds.Contracts.Data.Api.Tests.Integration
             });
 
             _testClient = appFactory.CreateClient();
-            _testClient.BaseAddress = new Uri("http://localhost:5001");
+            _testClient.BaseAddress = new Uri("http://localhost:44375");
             _testClient.DefaultRequestHeaders.Accept.Clear();
             _testClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }

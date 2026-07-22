@@ -5,6 +5,7 @@ using Pds.Contracts.Data.Common.Enums;
 using Pds.Contracts.Data.Services.Extensions;
 using System;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Pds.Contracts.Data.Services.Tests.Integration.DocumentServices
 {
@@ -38,15 +39,17 @@ namespace Pds.Contracts.Data.Services.Tests.Integration.DocumentServices
 
                     if (manuallyApproved)
                     {
-                        pdf.AssertPage1HasText(fileName, $"This {contractType} has been signed by the authorised signatory for the Department for " + Environment.NewLine + "Education, acting on behalf of the Secretary of State.");
+                        pdf.AssertPage1HasText(fileName, $"This {contractType} has been signed by the authorised signatory for the Department for Education, acting on behalf of the Secretary of State.");
                     }
                     else
                     {
-                        pdf.AssertPage1HasText(fileName, $"This {contractType} has been signed by the authorised signatory for the Department for " + Environment.NewLine + "Education, acting on behalf of the Secretary of State, and has been " + Environment.NewLine + "digitally signed by all parties.");
+                        pdf.AssertPage1HasText(fileName, $"This {contractType} has been signed by the authorised signatory for the Department for Education, acting on behalf of the Secretary of State, and has been digitally signed by all parties.");
                     }
 
                     pdf.AssertPage1HasText(fileName, $"Document reference: {contractReference}");
-                    pdf.AssertPage1HasText(fileName, $"Signed by {who} on {when.DisplayFormat()} as the provider's authorised " + Environment.NewLine + "signatory");
+
+                    pdf.AssertPage1HasText(fileName, $"Signed by {who} on {when.DisplayFormat()} as the provider's authorised signatory");
+
                     if (!string.IsNullOrEmpty(principalId))
                     {
                         pdf.AssertPage1HasText(fileName, $"User ID: {principalId}");
@@ -60,7 +63,10 @@ namespace Pds.Contracts.Data.Services.Tests.Integration.DocumentServices
 
         private static void AssertPage1HasText(this Document pdf, string fileName, string text)
         {
-            var contractReferenceAbsorber = new TextFragmentAbsorber(text);
+            string escapedText = Regex.Escape(text);
+            string lineBreakAgnosticPattern = Regex.Replace(escapedText, @"\\\s+", @"\s+");
+
+            var contractReferenceAbsorber = new TextFragmentAbsorber(lineBreakAgnosticPattern, new TextSearchOptions(true));
             pdf.Pages[1].Accept(contractReferenceAbsorber);
 
             Assert.AreEqual(1, contractReferenceAbsorber.TextFragments.Count, $"Could not find {text} for {fileName}");

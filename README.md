@@ -171,3 +171,94 @@ In order to run the application locally a valid `appsettings.json` file will nee
 
 - **`NotificationTopicSBOptions:MaximumBackoff`**
   The maximum duration of time allowed between retry attempts during transient failures.
+  
+## Test execution
+
+In order to test the application locally a valid `appsettings.development.json` file will need to be created in the projects (`Pds.Contracts.Data.Api.Tests`, `Pds.Contracts.Data.Services.Tests`). `appsettings.development.example.json`, in the projects can be used as a base and populated with appropriate values which can be found in Azure Portal.
+
+## Test Application Settings (`appsettings.development.json`)
+
+```json
+{
+  "AzureBlobConfiguration": {
+    "ConnectionString": "",
+    "ContainerName": "",
+    "RetryCount": 3,
+    "Delay": ""
+  },
+  "AuditApiConfiguration": {
+    "ApiBaseAddress": "",
+    "Authority": "",
+    "ClientId": "",
+    "ClientSecret": "",
+    "TenantId": "",
+    "AppUri": ""
+  },
+  "NotificationTopicSBOptions": {
+    "ServiceBusConnectionString": "",
+    "TopicName": "",
+    "RetryCount": 3,
+    "MinimumBackoff": "",
+    "MaximumBackoff": ""
+  }
+}
+```
+
+### Setting Details
+
+- **`AzureBlobConfiguration:ConnectionString`** 
+  The connection string used by the application to authenticate and connect to the Azure Blob Storage account. (Use `pdsiexcosmoslocal`)
+
+- **`AzureBlobConfiguration:ContainerName`**
+  The name of the specific Azure Blob Storage container where the application uploads, reads, or manages files. Always use `testdata`
+
+- **`AzureBlobConfiguration:RetryCount`** 
+  The maximum number of times the storage client will attempt to re-execute a failed operation (such as uploading or downloading a blob) when a transient error occurs.
+
+- **`AzureBlobConfiguration:Delay`** 
+  The amount of time the storage client waits before making its first retry attempt following a transient operation failure. 
+  
+- **`AuditApiConfiguration:ApiBaseAddress`** 
+  The base URL endpoint used by a client application to route network requests to the Audit API backend.
+
+- **`AuditApiConfiguration:Authority`** 
+  The base URL of the Identity Provider responsible for authenticating and issuing tokens for the Audit API client.
+
+- **`AuditApiConfiguration:ClientId`** 
+  The Audit API application (client) ID registered in azure ad.
+
+- **`AuditApiConfiguration:ClientSecret`** 
+  The confidential credential used by the Audit API application to securely prove its identity to the Identity Provider.
+
+- **`AuditApiConfiguration:TenantId`** 
+  The unique identifier for your azure ad tenant.
+
+- **`AuditApiConfiguration:AppUri`** 
+  The unique Application ID URI used as the identifier for the protected Audit API resource within the Identity Provider.
+  
+ - **`NotificationTopicSBOptions:ServiceBusConnectionString`** 
+  The connection string used by the application to authenticate and connect to the Azure Service Bus namespace.
+
+- **`NotificationTopicSBOptions:TopicName`** 
+  The specific topic name where notification messages are published or consumed.
+
+- **`NotificationTopicSBOptions:RetryCount`** 
+  The maximum number of times the application will attempt to re-send or re-process a message over the Azure Service Bus if a transient error occurs.
+
+- **`NotificationTopicSBOptions:MinimumBackoff`** 
+  The minimum duration of time the application waits before making its first retry attempt following a transient failure.
+
+- **`NotificationTopicSBOptions:MaximumBackoff`**
+  The maximum duration of time allowed between retry attempts during transient failures.
+  
+## Build and Test
+
+To build and test locally, you can either use Visual Studio, Visual Studio Code or simply use dotnet CLI `dotnet build` and `dotnet test` more information in dotnet CLI can be found at <https://docs.microsoft.com/en-us/dotnet/core/tools/>.
+
+## Contribute
+
+To contribute,
+
+- If you are part of the team then create a branch for changes and then submit your changes for review by creating a pull request.
+- If you are external to the organisation then fork this repository and make necessary changes and then submit your changes for review by creating a pull request.
+  
