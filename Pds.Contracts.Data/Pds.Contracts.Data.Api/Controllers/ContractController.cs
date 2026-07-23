@@ -535,7 +535,7 @@ namespace Pds.Contracts.Data.Api.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status503ServiceUnavailable)]
-        public async Task<ActionResult> PrependSignedPageToDocument([FromBody]int contractId)
+        public async Task<ActionResult> PrependSignedPageToDocument([FromBody] int contractId)
         {
             _logger.LogInformation($"[{nameof(PrependSignedPageToDocument)}] called with contractId: {contractId}");
 

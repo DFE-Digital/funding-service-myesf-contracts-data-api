@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Pds.Contracts.Data.Services.Interfaces
+﻿namespace Pds.Contracts.Data.Services.Interfaces
 {
     /// <summary>
     /// Api for manipulating and getting information from spreadsheets.

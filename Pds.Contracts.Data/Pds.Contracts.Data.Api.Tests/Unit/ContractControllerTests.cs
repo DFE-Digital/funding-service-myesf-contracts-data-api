@@ -791,7 +791,8 @@ namespace Pds.Contracts.Data.Api.Tests.Unit
 
             var controller = new ContractController(mockLogger.Object, mockContractService.Object)
             {
-                ControllerContext = CreateControllerContext(), ProblemDetailsFactory = _problemDetailsFactory
+                ControllerContext = CreateControllerContext(),
+                ProblemDetailsFactory = _problemDetailsFactory
             };
 
             var request = new UpdateContractWithdrawalRequest() { ContractNumber = "abc", ContractVersion = 1, WithdrawalType = ContractStatus.WithdrawnByAgency };
@@ -827,7 +828,8 @@ namespace Pds.Contracts.Data.Api.Tests.Unit
 
             var controller = new ContractController(mockLogger.Object, mockContractService.Object)
             {
-                ControllerContext = CreateControllerContext(), ProblemDetailsFactory = _problemDetailsFactory
+                ControllerContext = CreateControllerContext(),
+                ProblemDetailsFactory = _problemDetailsFactory
             };
 
             var request = new UpdateContractWithdrawalRequest() { ContractNumber = "abc", ContractVersion = 1, WithdrawalType = ContractStatus.WithdrawnByAgency };

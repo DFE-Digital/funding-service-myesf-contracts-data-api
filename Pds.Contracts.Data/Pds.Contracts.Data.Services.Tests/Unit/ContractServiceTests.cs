@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Azure.Storage.Blobs;
 using FluentAssertions;
 using MediatR;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -15,7 +14,6 @@ using Pds.Contracts.Data.Services.Implementations;
 using Pds.Contracts.Data.Services.Interfaces;
 using Pds.Contracts.Data.Services.Models;
 using Pds.Contracts.Data.Services.Responses;
-using Pds.Core.ApiClient.Exceptions;
 using Pds.Core.Logging;
 using System;
 using System.Collections.Generic;

@@ -76,7 +76,7 @@ namespace Pds.Contracts.Data.Services.Models
         /// Gets or sets the start date of the contract.
         /// </summary>
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString ="{0:yyyy-MM-dd}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime? StartDate { get; set; }
 
         /// <summary>

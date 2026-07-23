@@ -2,8 +2,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pds.Contracts.Data.Services.Extensions;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Pds.Contracts.Data.Services.Tests.Unit
 {

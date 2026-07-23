@@ -1,10 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Moq;
 using Pds.Contracts.Data.Repository.Context;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 
 namespace Pds.Contracts.Data.Services.Tests.SetUp
 {

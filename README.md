@@ -207,10 +207,10 @@ In order to test the application locally a valid `appsettings.development.json` 
 ### Setting Details
 
 - **`AzureBlobConfiguration:ConnectionString`** 
-  The connection string used by the application to authenticate and connect to the Azure Blob Storage account. (Use `pdsiexcosmoslocal`)
+  The connection string used by the application to authenticate and connect to the Azure Blob Storage account. (Use `pdsdevsharedstr`)
 
 - **`AzureBlobConfiguration:ContainerName`**
-  The name of the specific Azure Blob Storage container where the application uploads, reads, or manages files. Always use `testdata`
+  The name of the specific Azure Blob Storage container where the application uploads, reads, or manages files. (Use `contractevents`)
 
 - **`AzureBlobConfiguration:RetryCount`** 
   The maximum number of times the storage client will attempt to re-execute a failed operation (such as uploading or downloading a blob) when a transient error occurs.
@@ -237,10 +237,10 @@ In order to test the application locally a valid `appsettings.development.json` 
   The unique Application ID URI used as the identifier for the protected Audit API resource within the Identity Provider.
   
  - **`NotificationTopicSBOptions:ServiceBusConnectionString`** 
-  The connection string used by the application to authenticate and connect to the Azure Service Bus namespace.
+  The connection string used by the application to authenticate and connect to the Azure Service Bus namespace. (Use `pds-dev-shared-ns`)
 
 - **`NotificationTopicSBOptions:TopicName`** 
-  The specific topic name where notification messages are published or consumed.
+  The specific topic name where notification messages are published or consumed. (Use `contract-notification-topic-local`)
 
 - **`NotificationTopicSBOptions:RetryCount`** 
   The maximum number of times the application will attempt to re-send or re-process a message over the Azure Service Bus if a transient error occurs.

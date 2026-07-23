@@ -21,13 +21,12 @@
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
       "environmentVariables": {
-        "ASPNETCORE_HTTPS_PORTS": "44375",
-        "ASPNETCORE_HTTP_PORTS": "49278"
+        "ASPNETCORE_URLS": "https://+:8081;http://+:8080"
       },
       "publishAllPorts": true,
       "useSSL": true,
-      "httpPort": 49278,
-      "sslPort": 44375
+      "httpPort": 5002,
+      "sslPort": 5003
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
@@ -36,7 +35,7 @@
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:5002/",
-      "sslPort": 44397
+      "sslPort": 5003
     }
   }
 }

@@ -1,9 +1,7 @@
 ﻿using Pds.Contracts.Data.Common.Enums;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace Pds.Contracts.Data.Repository.Extensions
 {

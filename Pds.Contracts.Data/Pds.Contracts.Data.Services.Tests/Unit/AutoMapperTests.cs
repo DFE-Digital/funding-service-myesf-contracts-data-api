@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pds.Contracts.Data.Services.AutoMapperProfiles;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Pds.Contracts.Data.Services.Tests.Unit
 {

@@ -3,7 +3,6 @@ using Aspose.Pdf.Text;
 using Pds.Contracts.Data.Services.Extensions;
 using Pds.Contracts.Data.Services.Interfaces;
 using Pds.Core.Logging;
-using System;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.Versioning;

@@ -1,9 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Pds.Contracts.Data.Repository.Interfaces;
+﻿using Pds.Contracts.Data.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Pds.Contracts.Data.Repository.Implementations
 {

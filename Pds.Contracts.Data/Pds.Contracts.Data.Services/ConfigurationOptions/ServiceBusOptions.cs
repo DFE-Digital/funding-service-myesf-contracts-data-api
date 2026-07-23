@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Pds.Contracts.Data.Services.ConfigurationOptions
+﻿namespace Pds.Contracts.Data.Services.ConfigurationOptions
 {
     /// <summary>
     /// Service Bus Options.

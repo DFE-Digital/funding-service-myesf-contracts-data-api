@@ -1,13 +1,10 @@
-﻿using MediatR;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Pds.Audit.Api.Client.Interfaces;
 using Pds.Contracts.Data.Common.Enums;
 using Pds.Contracts.Data.Common.Responses;
 using Pds.Contracts.Data.Services.NotificationHandlers;
 using Pds.Core.Logging;
-using System.Collections.Generic;
-using System.Threading;
 using System.Threading.Tasks;
 using AuditModels = Pds.Audit.Api.Client.Models;
 
