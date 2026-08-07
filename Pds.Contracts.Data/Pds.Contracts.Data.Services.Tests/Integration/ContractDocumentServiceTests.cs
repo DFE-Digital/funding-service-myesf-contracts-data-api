@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pds.Audit.Api.Client.Registrations;
-using Pds.Contracts.Data.Services.DependencyInjection;
 using Pds.Contracts.Data.Services.DocumentServices;
 using Pds.Contracts.Data.Services.Interfaces;
 using Pds.Contracts.Data.Services.Models;
@@ -60,7 +59,6 @@ namespace Pds.Contracts.Data.Services.Tests.Integration
 
             var services = new ServiceCollection();
             services.AddLoggerAdapter();
-            services.AddAutoMapper(typeof(FeatureServiceCollectionExtensions).Assembly);
             var policyRegistry = services.AddPolicyRegistry();
             services.AddAuditApiClient(configuration, policyRegistry);
 
