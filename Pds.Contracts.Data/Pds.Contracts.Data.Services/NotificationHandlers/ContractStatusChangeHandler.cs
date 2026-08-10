@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using MapsterMapper;
 using MediatR;
 using Pds.Audit.Api.Client.Enumerations;
 using Pds.Contracts.Data.Common.Enums;
@@ -25,7 +25,7 @@ namespace Pds.Contracts.Data.Services.NotificationHandlers
         /// Initializes a new instance of the <see cref="ContractStatusChangeHandler"/> class.
         /// </summary>
         /// <param name="messagePublisher">The message publisher used for sending messages to notification service bus topic.</param>
-        /// <param name="mapper">Automapper instance.</param>
+        /// <param name="mapper">Mapster instance.</param>
         /// <param name="logger">The logger.</param>
         public ContractStatusChangeHandler(IMessagePublisher messagePublisher, IMapper mapper, ILoggerAdapter<ContractStatusChangeHandler> logger)
         {

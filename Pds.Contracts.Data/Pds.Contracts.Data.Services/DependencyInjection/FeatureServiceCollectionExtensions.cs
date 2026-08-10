@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using Mapster;
+using MapsterMapper;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Azure.ServiceBus;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +14,7 @@ using Pds.Contracts.Data.Services.Interfaces;
 using Pds.Contracts.Data.Services.Models;
 using Pds.Core.ApiClient.Interfaces;
 using Pds.Core.ApiClient.Services;
+using Pds.DocumentExchange.Data.Services.Mapster;
 
 namespace Pds.Contracts.Data.Services.DependencyInjection
 {
@@ -37,8 +40,9 @@ namespace Pds.Contracts.Data.Services.DependencyInjection
 
             services.AddRepositoriesServices(configuration);
 
-            // TODO - Upgrade or replace AutoMapper.
-            services.AddAutoMapper(typeof(FeatureServiceCollectionExtensions).Assembly);
+            services.AddSingleton(new TypeAdapterConfig().Configure());
+            services.AddSingleton<IMapper, ServiceMapper>();
+
             services.AddScoped<IContractService, ContractService>();
             services.AddScoped<ISubcontractorDeclarationService, SubcontractorDeclarationService>();
 

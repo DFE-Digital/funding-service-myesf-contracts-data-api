@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using MapsterMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Pds.Audit.Api.Client.Enumerations;
@@ -47,7 +47,7 @@ namespace Pds.Contracts.Data.Services.Implementations
         /// Initializes a new instance of the <see cref="ContractService" /> class.
         /// </summary>
         /// <param name="repository">Contracts repository.</param>
-        /// <param name="mapper">Automapper instance.</param>
+        /// <param name="mapper">Mapster instance.</param>
         /// <param name="uriService">The uri service.</param>
         /// <param name="logger">The logger.</param>
         /// <param name="auditService">The audit service used for auditing.</param>

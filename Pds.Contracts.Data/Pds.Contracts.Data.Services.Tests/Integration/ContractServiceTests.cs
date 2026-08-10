@@ -1,5 +1,6 @@
-﻿using AutoMapper;
-using FluentAssertions;
+﻿using FluentAssertions;
+using Mapster;
+using MapsterMapper;
 using MediatR;
 using Microsoft.Azure.ServiceBus;
 using Microsoft.Extensions.Configuration;
@@ -11,7 +12,6 @@ using Pds.Audit.Api.Client.Interfaces;
 using Pds.Audit.Api.Client.Registrations;
 using Pds.Contracts.Data.Common.Enums;
 using Pds.Contracts.Data.Repository.Implementations;
-using Pds.Contracts.Data.Services.AutoMapperProfiles;
 using Pds.Contracts.Data.Services.DependencyInjection;
 using Pds.Contracts.Data.Services.DocumentServices;
 using Pds.Contracts.Data.Services.Implementations;
@@ -21,6 +21,7 @@ using Pds.Contracts.Data.Services.Responses;
 using Pds.Contracts.Data.Services.Tests.Integration.DocumentServices;
 using Pds.Contracts.Data.Services.Tests.SetUp;
 using Pds.Core.Logging;
+using Pds.DocumentExchange.Data.Services.Mapster;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -590,12 +591,7 @@ namespace Pds.Contracts.Data.Services.Tests.Integration
         /// </summary>
         private void SetMapperHelper()
         {
-            var mapperConfig = new MapperConfiguration(mc =>
-            {
-                mc.AddProfile(new ContractMapperProfile());
-            });
-
-            _mapper = mapperConfig.CreateMapper();
+            _mapper = new Mapper(new TypeAdapterConfig().Configure());
         }
 
         private void MockAuditService()
@@ -665,7 +661,8 @@ namespace Pds.Contracts.Data.Services.Tests.Integration
 
             var services = new ServiceCollection();
             services.AddLoggerAdapter();
-            services.AddAutoMapper(typeof(FeatureServiceCollectionExtensions).Assembly);
+            services.AddSingleton(new TypeAdapterConfig().Configure());
+            services.AddSingleton<IMapper, ServiceMapper>();
             var policyRegistry = services.AddPolicyRegistry();
             services.AddAuditApiClient(configuration, policyRegistry);
             services.AddSingleton<ITopicClient>(serviceProvider => ServiceBusHelper.GetTopicClient(configuration));
@@ -687,7 +684,8 @@ namespace Pds.Contracts.Data.Services.Tests.Integration
 
             var services = new ServiceCollection();
             services.AddLoggerAdapter();
-            services.AddAutoMapper(typeof(FeatureServiceCollectionExtensions).Assembly);
+            services.AddSingleton(new TypeAdapterConfig().Configure());
+            services.AddSingleton<IMapper, ServiceMapper>();
             var policyRegistry = services.AddPolicyRegistry();
             services.AddAuditApiClient(configuration, policyRegistry);
 
