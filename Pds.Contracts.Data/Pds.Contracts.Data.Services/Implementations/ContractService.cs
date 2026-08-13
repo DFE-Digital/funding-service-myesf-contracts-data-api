@@ -87,7 +87,7 @@ namespace Pds.Contracts.Data.Services.Implementations
 
             try
             {
-                _logger.LogInformation($"[{nameof(CreateAsync)}] Creating new contract [{request.ContractNumber}] version [{request.ContractVersion}] for [{request.UKPRN}].");
+                _logger.LogInformation($"[{nameof(CreateAsync)}] Creating new contract [{request.ContractNumber}] version [{request.ContractVersion}] for [{request.Ukprn}].");
 
                 var existing = await _repository.GetByContractNumberAsync(request.ContractNumber);
                 _contractValidator.ValidateForNewContract(request, existing);

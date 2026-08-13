@@ -11,10 +11,10 @@ using Pds.Contracts.Data.Repository.DependencyInjection;
 using Pds.Contracts.Data.Services.DocumentServices;
 using Pds.Contracts.Data.Services.Implementations;
 using Pds.Contracts.Data.Services.Interfaces;
+using Pds.Contracts.Data.Services.Mapster;
 using Pds.Contracts.Data.Services.Models;
 using Pds.Core.ApiClient.Interfaces;
 using Pds.Core.ApiClient.Services;
-using Pds.DocumentExchange.Data.Services.Mapster;
 
 namespace Pds.Contracts.Data.Services.DependencyInjection
 {

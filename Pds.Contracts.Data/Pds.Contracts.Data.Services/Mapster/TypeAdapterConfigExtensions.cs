@@ -2,9 +2,8 @@
 using Pds.Contracts.Data.Common.Responses;
 using Pds.Contracts.Data.Services.Models;
 using DataModel = Pds.Contracts.Data.Repository.DataModels;
-using ServiceModel = Pds.Contracts.Data.Services.Models;
 
-namespace Pds.DocumentExchange.Data.Services.Mapster
+namespace Pds.Contracts.Data.Services.Mapster
 {
     /// <summary>
     /// Class to extend Mapster TypeAdapterConfig to add mappings.
@@ -22,21 +21,21 @@ namespace Pds.DocumentExchange.Data.Services.Mapster
             config.Default.PreserveReference(true);
             config.Default.AddDestinationTransform(DestinationTransform.EmptyCollectionIfNull);
 
-            config.ForType<DataModel.Contract, ServiceModel.Contract>();
+            config.ForType<DataModel.Contract, Contract>();
 
-            config.ForType<DataModel.ContractContent, ServiceModel.ContractContent>();
-            config.ForType<DataModel.Contract, ServiceModel.ContractReminderItem>();
+            config.ForType<DataModel.ContractContent, ContractContent>();
+            config.ForType<DataModel.Contract, ContractReminderItem>();
 
-            config.ForType<ServiceModel.CreateContractRequestDocument, DataModel.ContractContent>()
+            config.ForType<CreateContractRequestDocument, DataModel.ContractContent>()
                 .Ignore(dest => dest.Id)
                 .Ignore(dest => dest.IdNavigation);
 
-            config.ForType<ServiceModel.CreateContractCode, DataModel.ContractFundingStreamPeriodCode>()
+            config.ForType<CreateContractCode, DataModel.ContractFundingStreamPeriodCode>()
                 .Ignore(dest => dest.Id)
                 .Ignore(dest => dest.ContractId)
                 .Ignore(dest => dest.Contract);
 
-            config.ForType<ServiceModel.CreateContractRequest, DataModel.Contract>()
+            config.ForType<CreateContractRequest, DataModel.Contract>()
                 .Ignore(dest => dest.ContractData)
                 .Ignore(dest => dest.Id)
                 .Ignore(dest => dest.Status)

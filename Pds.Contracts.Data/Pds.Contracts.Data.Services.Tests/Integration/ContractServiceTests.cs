@@ -16,12 +16,12 @@ using Pds.Contracts.Data.Services.DependencyInjection;
 using Pds.Contracts.Data.Services.DocumentServices;
 using Pds.Contracts.Data.Services.Implementations;
 using Pds.Contracts.Data.Services.Interfaces;
+using Pds.Contracts.Data.Services.Mapster;
 using Pds.Contracts.Data.Services.Models;
 using Pds.Contracts.Data.Services.Responses;
 using Pds.Contracts.Data.Services.Tests.Integration.DocumentServices;
 using Pds.Contracts.Data.Services.Tests.SetUp;
 using Pds.Core.Logging;
-using Pds.DocumentExchange.Data.Services.Mapster;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -90,6 +90,7 @@ namespace Pds.Contracts.Data.Services.Tests.Integration
             // Assert
             before.Should().BeEmpty();
             after.Should().HaveCount(1).And.Subject.First().ContractVersion.Should().Be(request.ContractVersion);
+            after.Should().HaveCount(1).And.Subject.First().Ukprn.Should().Be(request.Ukprn);
         }
 
         #endregion
@@ -614,7 +615,7 @@ namespace Pds.Contracts.Data.Services.Tests.Integration
 
             var request = new CreateContractRequest()
             {
-                UKPRN = 12345678,
+                Ukprn = 12345678,
                 Title = "Test contract title",
                 ContractNumber = "Test123",
                 ContractVersion = 1,

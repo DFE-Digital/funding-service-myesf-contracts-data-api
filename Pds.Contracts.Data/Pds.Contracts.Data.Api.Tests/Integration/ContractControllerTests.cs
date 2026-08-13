@@ -571,7 +571,7 @@ namespace Pds.Contracts.Data.Api.Tests.Integration
 
             var request = new CreateContractRequest()
             {
-                UKPRN = 12345678,
+                Ukprn = 12345678,
                 Title = "Test contract title",
                 ContractNumber = "Test123",
                 ContractVersion = 1,
