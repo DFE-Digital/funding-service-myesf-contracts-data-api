@@ -1,6 +1,6 @@
 ﻿using Mapster;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Pds.DocumentExchange.Data.Services.Mapster;
+using Pds.Contracts.Data.Services.Mapster;
 
 namespace Pds.Contracts.Data.Services.Tests.Unit
 {

@@ -14,8 +14,8 @@ namespace Pds.Contracts.Data.Services.Models
         /// Gets or sets the UKPRN assocaited with the contract.
         /// </summary>
         [Required]
-        [RegularExpression("^[0-9]{8}$", ErrorMessage = "UKPRN should consist of 8 digits.")]
-        public int UKPRN { get; set; }
+        [RegularExpression("^[0-9]{8}$", ErrorMessage = "Ukprn should consist of 8 digits.")]
+        public int Ukprn { get; set; }
 
         /// <summary>
         /// Gets or sets the title for the contract.
