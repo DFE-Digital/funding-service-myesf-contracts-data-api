@@ -10,8 +10,8 @@ namespace Pds.Contracts.Data.Common.Enums
         /// <summary>
         /// The unique identifier for each client.
         /// </summary>
-        [Display(Name = "UKPRN", Description = "UKPRN")]
-        UKPRN = 1,
+        [Display(Name = "Ukprn", Description = "Ukprn")]
+        Ukprn = 1,
 
         /// <summary>
         /// The title of the contracts.

@@ -119,7 +119,7 @@ namespace Pds.Contracts.Data.Services.Tests.Unit
                 ContractNumber = "abc",
                 ContractVersion = 1,
                 Status = ContractStatus.Approved,
-                UKPRN = 12345678
+                Ukprn = 12345678
             };
         }
 
