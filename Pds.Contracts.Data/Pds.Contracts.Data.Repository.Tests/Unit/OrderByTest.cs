@@ -64,7 +64,7 @@ namespace Pds.Contracts.Data.Repository.Tests.Unit
         public void OrderByDynamic_UKPRN_Asc_Test()
         {
             //Arrange
-            ContractSortOptions sort = ContractSortOptions.UKPRN;
+            ContractSortOptions sort = ContractSortOptions.Ukprn;
             SortDirection order = SortDirection.Asc;
             var contracts = GetContracts().AsQueryable();
 
@@ -86,7 +86,7 @@ namespace Pds.Contracts.Data.Repository.Tests.Unit
         public void OrderByDynamic_UKPRN_Desc_Test()
         {
             //Arrange
-            ContractSortOptions sort = ContractSortOptions.UKPRN;
+            ContractSortOptions sort = ContractSortOptions.Ukprn;
             SortDirection order = SortDirection.Desc;
             var contracts = GetContracts().AsQueryable();
 
